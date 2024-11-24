@@ -38,27 +38,68 @@ The dataset undergoes the following preprocessing steps:
 - **Text Vectorization**: Uses TF-IDF on movie overviews, genres, and keywords to extract relevant features for similarity matching.
 - **Dimensionality Reduction**: Applies Truncated SVD to reduce computational load and enhance model efficiency.
 
-## Installation and Running steps for Juypter Notebook
+## Feature Engineering
+
+**1. TF-IDF Vectorization:**
+   - The content column was vectorized using TF-IDF (Term Frequency-Inverse Document Frequency), producing a term-weighted matrix that highlights unique words in movie overview.
+
+**2. Dimensionality Reduction:**
+   - Truncated SVD reduced the high-dimensional TF-IDF matrix into 100 latent features.
+        - Parameters:
+           - n_components=70
+           - random_state=42
+**3. Normalization:**
+   - Normalized the reduced matrix to ensure all vectors had equal magnitude, enabling fair cosine similarity comparisons.
+
+## Similarity Computation
+
+**1. Cosine Similarity:**
+   - Used to Measure the similarity between feature vectors in the reduced space. The resulting similarity matrix serves as the base for retrieving movie recommendations.
+
+**2. Recommendation Retrieval:**
+   - Designed a function to retrieve the top 10 most similar movies for a given title based on the similarity matrix.
+
+## Installation and Running steps for Jupyter Notebook
 
 To set up the project locally, follow these steps:
 
 1. Clone this repository:
 
    ```bash
-   git clone git@github.com:RahulSaini02/movie_recommendation_svd.git
+   git clone git@github.com:RahulSaini02/movie_recommendation_system_svd.git
    ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd movies-recommendation-system
+    cd movie_recommendation_system_svd/jupyter_notebook
     ```
-3. Install the required dependencies:
+3. Set up Python virtual environment (optional but recommended):
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Activate the virtual environment
+   ```
+4. Install the required dependencies:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Download the above given dataset into the current directory
+5. Download the above given dataset into the current directory
 
-5. Open the .ipynb file in Juypter Notebook or Juypter Lab and run the cells
+6. Running Jupyter Notebook
+
+   ```bash
+   jupyter notebook
+   ```
+
+## Results
+
+![image](https://github.com/user-attachments/assets/b89d40eb-031e-43e9-8193-fe96dc6b25cc)
+
+![image](https://github.com/user-attachments/assets/c86044f1-cf66-4317-8487-9e9539ef1f78)
+
+![image](https://github.com/user-attachments/assets/024bef4a-5db0-4a75-8c8a-fbcf66fcf457)
+
+![image](https://github.com/user-attachments/assets/e771124d-6ce7-4fc8-8867-3d8339ed8244)

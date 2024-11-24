@@ -1,1 +1,2 @@
-juypter_notebook/TMDB_movie_dataset.csv filter=lfs diff=lfs merge=lfs -text
+jupyter_notebook/TMDB_movie_dataset.csv filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text

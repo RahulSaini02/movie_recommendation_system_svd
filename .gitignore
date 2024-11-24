@@ -1,0 +1,5 @@
+.ipynb_checkpoints
+.DS_Store
+juypter_notebook/TMDB_movie_dataset.csv
+*.docx
+*.pdf
